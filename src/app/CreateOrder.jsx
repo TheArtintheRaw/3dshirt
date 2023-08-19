@@ -4,7 +4,7 @@ import state from '%/store'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-const CreateOrder = async () => {
+const CreateOrder = () => {
   const snap = useSnapshot(state)
 
   const handleBuyNow = async () => {
