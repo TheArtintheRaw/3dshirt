@@ -1,4 +1,16 @@
-export async function POST(req, res) {
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  switch (req.method) {
+    case 'POST':
+      return await POST(req, res);
+    default:
+      res.status(405).end(); // Method Not Allowed
+      break;
+  }
+}
+
+async function POST(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const orderData = {
       payload: {
