@@ -63,22 +63,19 @@ const CreateOrder = async () => {
           sessionId,
         })
 
-        if (error) {
-          console.error('Error:', error.message)
-          // Handle error during redirection
-        }
-      } else {
+        if (error) {}
+        else {
         const { error } = await response.json()
-        console.error('Error:', error)
+       error('Error:', error)
         // Handle error in order creation
       }
-    } catch (error) {
-      console.error('Error:', error)
+    } else (error) => {
+      error('Error:', error)
       // Handle any network or server errors
     }
   }
 
-  return handleBuyNow
+ catch {handleBuyNow}
 }
-
+}
 export default CreateOrder
