@@ -1,11 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import OpenAI, { OpenAI as OpenAITypes } from 'openai';
+const { NextApiRequest, NextApiResponse } = require('next');
+const OpenAI = require('openai');
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json({ message: 'Hello from DALL.E ROUTES' });
   }
@@ -18,7 +18,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       size: '1024x1024',
       response_format: 'b64_json',
     })
-      .then((response: OpenAITypes.ImagesResponse) => {
+      .then((response) => {
         const image = response.data[0].b64_json;
         res.status(200).json({ photo: image });
       })
