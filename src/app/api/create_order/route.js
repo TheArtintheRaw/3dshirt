@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+const { NextApiRequest, NextApiResponse } = require('next');
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
   switch (req.method) {
     case 'POST':
       return await POST(req, res);
@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 
-async function POST(req: NextApiRequest, res: NextApiResponse) {
+async function POST(req, res) {
   if (req.method === 'POST') {
     const orderData = {
       payload: {
@@ -62,19 +62,19 @@ async function POST(req: NextApiRequest, res: NextApiResponse) {
           Accept: 'application/json',
         },
         body: JSON.stringify(orderData),
-      })
+      });
 
       if (response.ok) {
-        const responseData = await response.json()
-        return res.status(200).json({ data: responseData })
+        const responseData = await response.json();
+        return res.status(200).json({ data: responseData });
       } else {
-        const errorResponse = await response.json()
-        return res.status(response.status).json({ error: errorResponse })
+        const errorResponse = await response.json();
+        return res.status(response.status).json({ error: errorResponse });
       }
     } catch (error) {
-      return res.status(500).json({ error: 'Internal Server Error' })
+      return res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
-  return res.status(400).json({ error: 'Invalid request method' })
+  return res.status(400).json({ error: 'Invalid request method' });
 }
