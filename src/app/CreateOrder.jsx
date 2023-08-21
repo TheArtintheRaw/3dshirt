@@ -24,7 +24,7 @@ const CreateOrder = () => {
       const { firstName, lastName, email, phone, country, region, address1, address2, city, postalCode } = shipping
 
       // Create the order on the server-side and get the session ID
-      const response = await fetch('/api/create_order', {
+      const response = await fetch('https://3dcustom.vercel.app/api/create_order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const CreateOrder = () => {
         if (error) {}
         else {
         const { error } = await response.json()
-       error('Error:', error)
+        error('Error:', error)
         // Handle error in order creation
       }
     } else (error) => {

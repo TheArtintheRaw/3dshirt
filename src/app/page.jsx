@@ -23,7 +23,8 @@ export default function Page({ ...props }) {
           <motion.section className='home' {...slideAnimation('left')}>
             <motion.header {...slideAnimation('down')}>
               <Image
-                src='/3reblk.png'
+                src='https://i.ibb.co/K20mBTN/3reblk.png'
+                border='0'
                 alt='logo'
                 width={36}
                 height={12}
@@ -39,7 +40,7 @@ export default function Page({ ...props }) {
                 </h1>
               </motion.div>
               <motion.div {...headContentAnimation} className='flex flex-col gap-5'>
-                <p className='max-w-md text-base font-normal text-gray-600'>
+                <p className='max-w-md text-base font-normal text-gray-300'>
                   Create your Dope Shirt. Order your Dope Shirt. Rock your Dope Shirt. With the Dope Shirt Customizer,
                   defining your style starts with <strong>Dope Shirt</strong>
                 </p>
