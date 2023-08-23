@@ -23,7 +23,7 @@ export default function Page({ ...props }) {
           <motion.section className='home' {...slideAnimation('left')}>
             <motion.header {...slideAnimation('down')}>
               <Image
-                src='https://i.ibb.co/K20mBTN/3reblk.png'
+                src='3reblk.png'
                 border='0'
                 alt='logo'
                 width={36}
