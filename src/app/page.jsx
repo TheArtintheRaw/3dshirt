@@ -26,9 +26,8 @@ export default function Page({ ...props }) {
                 src='3reblk.png'
                 border='0'
                 alt='logo'
-                width={36}
-                height={12}
-                className='h-12 w-36 object-contain'
+                width={144}
+                height={48}                
                 priority
               />
             </motion.header>
@@ -36,12 +35,12 @@ export default function Page({ ...props }) {
             <motion.div className='home-content' {...headContainerAnimation}>
               <motion.div {...headTextAnimation}>
                 <h1 className='head-text'>
-                  <span className='text-white'>Dope Shirt</span> <br className='hidden xl:block' />
+                  <span className='text-white'>Dope Sh!rt</span> <br className='hidden xl:block' />
                 </h1>
               </motion.div>
               <motion.div {...headContentAnimation} className='flex flex-col gap-5'>
                 <p className='max-w-md text-base font-normal text-gray-300'>
-                  Create your Dope Shirt. Order your Dope Shirt. Rock your Dope Shirt. With the Dope Shirt Customizer,
+                  Create your Dope Shirt. Order your Dope Sh!rt. Rock your Dope Shirt. With the Dope Shirt Customizer,
                   defining your style starts with <strong>Dope Shirt</strong>
                 </p>
 
