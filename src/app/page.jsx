@@ -40,8 +40,8 @@ export default function Page({ ...props }) {
               </motion.div>
               <motion.div {...headContentAnimation} className='flex flex-col gap-5'>
                 <p className='max-w-md text-base font-normal text-gray-300'>
-                  Create your Dope Shirt. Order your Dope Sh!rt. Rock your Dope Shirt. With the Dope Shirt Customizer,
-                  defining your style starts with <strong>Dope Shirt</strong>
+                  Create your Dope Shirt. Order your Dope Sh!rt. Rock your Dope Sh!rt. With Dope Sh!rt,
+                  defining your style starts with <strong>Dope Sh!rt</strong>
                 </p>
 
                 <CustomButton
