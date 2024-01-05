@@ -13,7 +13,7 @@ export default function Scene({ ...props }) {
   return (
     <Canvas shadows camera={{ position: [0, 0, 0], fov: 25 }} gl={{ preserveDrawingBuffer: true }} {...props}>
       <ambientLight intensity={0.5} />
-      <Environment files="/img/venice_sunset_1k.hdr" background blur={0.5} />
+      <Environment files="/img/kloofendal_43d_clear_puresky_1k.hdr" background blur={0.5} />
       <CameraRig>
         <Backdrop />
         <ImageBorder />
