@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber'
-import { Center } from '@react-three/drei'
+import { Center, Environment } from '@react-three/drei'
 import { r3f } from '%/helpers/global'
 import { Shirt } from './Examples'
 import ImageBorder from './ImageBorder'
@@ -13,6 +13,7 @@ export default function Scene({ ...props }) {
   return (
     <Canvas shadows camera={{ position: [0, 0, 0], fov: 25 }} gl={{ preserveDrawingBuffer: true }} {...props}>
       <ambientLight intensity={0.5} />
+      <Environment files="/img/venice_sunset_1k.hdr" background blur={0.5} />
       <CameraRig>
         <Backdrop />
         <ImageBorder />
