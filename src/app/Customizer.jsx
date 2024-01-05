@@ -140,8 +140,8 @@ const Customizer = ({ ...props }) => {
     <AnimatePresence {...props}>
       {!snap.intro && (
         <>
-          <motion.div key='custom' className='absolute left-0 top-0 z-10' {...slideAnimation('left')}>
-            <div className='flex min-h-screen items-center'>
+          <motion.div key='custom' className='absolute top-0 left-0 z-10' {...slideAnimation('left')}>
+            <div className='flex items-center min-h-screen'>
               <div className='editortabs-container tabs'>
                 {EditorTabs.map((tab) => (
                   <Tab key={tab.name} tab={tab} handleClick={() => handleTabClick(tab.name)} />
@@ -152,7 +152,7 @@ const Customizer = ({ ...props }) => {
             </div>
           </motion.div>
 
-          <motion.div className='absolute right-5 top-5 z-10' {...fadeAnimation}>
+          <motion.div className='absolute z-10 right-5 top-5' {...fadeAnimation}>
             <CustomButton
               type='filled'
               title='Go Back'
@@ -161,7 +161,7 @@ const Customizer = ({ ...props }) => {
             />
           </motion.div>
 
-          <motion.div className='absolute bottom-16 right-5 z-10' {...fadeAnimation}>
+          <motion.div className='absolute z-10 bottom-16 right-5' {...fadeAnimation}>
             <CustomButton
               type='filled'
               title={`${!isModalOpen ? 'Buy' : 'Close'}`}
@@ -185,7 +185,7 @@ const Customizer = ({ ...props }) => {
             ))}
           </motion.div>
 
-          <motion.div className='absolute bottom-16 left-0' {...slideAnimation('up')}>
+          <motion.div className='absolute left-0 bottom-16' {...slideAnimation('up')}>
             <DisplayStats />
           </motion.div>
         </>
