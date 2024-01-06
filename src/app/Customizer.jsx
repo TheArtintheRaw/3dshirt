@@ -137,6 +137,10 @@ const Customizer = ({ ...props }) => {
     setIsModalOpen((prev) => !prev)
   }
 
+  const handleDnSClick = () => {
+    setDragEnabled((prev) => !prev)
+  }
+
   return (
     <AnimatePresence {...props}>
       {!snap.intro && (
@@ -166,7 +170,7 @@ const Customizer = ({ ...props }) => {
           <CustomButton
               type='filled'
               title={`${!isDragEnabled ? 'Static' : 'Dynamic'}`}
-              handleClick={setDragEnabled}
+              handleClick={handleDnSClick}
               customStyles='w-fit px-4 py-2.5 font-bold text-sm'
             />
             </motion.div>
