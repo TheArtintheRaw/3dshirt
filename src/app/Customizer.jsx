@@ -138,6 +138,10 @@ const Customizer = ({ ...props }) => {
     setIsModalOpen((prev) => !prev)
   }
 
+  const toggleDrag = () => {
+    isDragEnabled((prev) => prev )
+  }
+
 
   return (
     <AnimatePresence {...props}>
@@ -164,7 +168,10 @@ const Customizer = ({ ...props }) => {
             />
           </motion.div>
 
-          <DnsToggle />
+        <motion.div className='absolute z-10 top-5 left-[50%]' {...fadeAnimation}>
+          <DnsToggle toggleDrag={toggleDrag} />
+        </motion.div>
+
 
           <motion.div className='absolute z-10 bottom-16 right-5' {...fadeAnimation}>
             <CustomButton

@@ -82,18 +82,15 @@ export function CameraRig({ children }) {
   return <group ref={group}>{children}</group>;
 }
 
-const handleDnsClick = () => {
-  setDragEnabled((prev) => prev)
 
-}
 
-export const DnsToggle = () => {
-  <motion.div className='absolute z-10 top-5 left-[50%]' {...fadeAnimation}>
+export const DnsToggle = ({toggleDrag}) => {
+
           <CustomButton
               type='filled'
               title={`${!isDragEnabled ? 'Static' : 'Dynamic'}`}
-              handleClick={handleDnsClick}
+              handleClick={toggleDrag}
               customStyles='w-fit px-4 py-2.5 font-bold text-sm'
             />
-            </motion.div>
+
 }
