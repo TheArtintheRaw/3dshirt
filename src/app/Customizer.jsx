@@ -162,7 +162,7 @@ const Customizer = ({ ...props }) => {
             />
           </motion.div>
 
-          <motion.div className='absolute z-10 top-5' {...fadeAnimation}>
+          <motion.div className='absolute z-10 top-5 left-[50%]' {...fadeAnimation}>
           <CustomButton
               type='filled'
               title={`${!isDragEnabled ? 'Static' : 'Dynamic'}`}
