@@ -59,18 +59,18 @@ export function CameraRig({ children }) {
     // Set model camera position
     easing.damp3(state.camera.position, targetPosition, 0.25, delta);
 
+    // Update rotation of the group only when left mouse button is pressed down
+    function controlShirt(e) {
+      if (isDragEnabled && e.buttons === 1 && group.current) {
+        easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta);
+      }
+    }
+
     // Add and remove the event listener based on isDragEnabled
     if (isDragEnabled) {
       document.addEventListener('pointermove', controlShirt);
     } else {
       document.removeEventListener('pointermove', controlShirt);
-    }
-
-    // Update rotation of the group only when left mouse button is pressed down
-    function controlShirt(e) {
-      if (e.buttons === 1 && group.current) {
-        easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta);
-      }
     }
   });
 
