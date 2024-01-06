@@ -34,6 +34,8 @@ export function CameraRig({ children }) {
   const group = useRef()
   const snap = useSnapshot(state)
 
+  const [isDragEnabled, setDragEnabled] = useState(true);
+
   useFrame((state, delta) => {
     const isBreakpoint = window.innerWidth <= 1260
     const isMobile = window.innerWidth <= 600
@@ -61,10 +63,10 @@ export function CameraRig({ children }) {
     // Update rotation of the group only when left mouse button is pressed down
 
     function controlShirt(e) {
-      if (e.buttons === 1 && group.current) {
-        easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta)
-      }
-    }
+  if (isDragEnabled && e.buttons === 1 && group.current) {
+    easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta);
+  }
+}
   })
 
   return <group ref={group}>{children}</group>

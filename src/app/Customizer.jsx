@@ -27,6 +27,7 @@ const Customizer = ({ ...props }) => {
   const [file, setFile] = useState('')
   const [color, setColor] = useState('')
   const [prompt, setPrompt] = useState('')
+  const [isDragEnabled, setDragEnabled] = useState(true);
   const [generatingImg, setGeneratingImg] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [activeEditorTab, setActiveEditorTab] = useState('')
@@ -161,6 +162,15 @@ const Customizer = ({ ...props }) => {
             />
           </motion.div>
 
+          <motion.div className='absolute z-10 top-5' {...fadeAnimation}>
+          <CustomButton
+              type='filled'
+              title={`${isDragEnabled ? 'Static' : 'Dynamic'}`}
+              handleClick={setDragEnabled}
+              customStyles='w-fit px-4 py-2.5 font-bold text-sm'
+            />
+            </motion.div>
+
           <motion.div className='absolute z-10 bottom-16 right-5' {...fadeAnimation}>
             <CustomButton
               type='filled'
@@ -168,6 +178,7 @@ const Customizer = ({ ...props }) => {
               handleClick={handleModalClick}
               customStyles='w-fit px-4 py-2.5 font-bold text-sm'
             />
+
             <Modal isOpen={isModalOpen} handleClose={handleModalClick}>
               <BuyButton className='scale-[0.4] md:scale-[0.6] lg:scale-[0.8]' handleClick={CreateOrder} />
             </Modal>
