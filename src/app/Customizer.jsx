@@ -138,6 +138,7 @@ const Customizer = ({ ...props }) => {
   }
 
   const handleDnSClick = () => {
+    console.log('shirt movement changed');
     setDragEnabled((prev) => !prev)
   }
 
