@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useRef } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import { AccumulativeShadows, RandomizedLight, View as ViewImpl } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useSnapshot } from 'valtio'
