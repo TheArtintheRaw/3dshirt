@@ -19,7 +19,7 @@ export function Backdrop() {
         temporal
         frames={60}
         alphaTest={0.85}
-        scale={10}
+        scale={15}
         rotation={[Math.PI / 2, 0, 0]}
         position={[0, 0, -0.14]}
       >
@@ -31,62 +31,48 @@ export function Backdrop() {
 }
 
 export function CameraRig({ children }) {
-  const group = useRef()
-  const snap = useSnapshot(state)
-
+  const group = useRef();
+  const snap = useSnapshot(state);
   const [isDragEnabled, setDragEnabled] = useState(true);
 
   useFrame((state, delta) => {
-    const isBreakpoint = window.innerWidth <= 1260
-    const isMobile = window.innerWidth <= 600
+    const isBreakpoint = window.innerWidth <= 1260;
+    const isMobile = window.innerWidth <= 600;
 
     // Set the initial position of the model
-    let targetPosition = [0, 0, 2]
+    let targetPosition = [0, 0, 2];
+
     if (snap.intro) {
       if (isBreakpoint) {
-        targetPosition = [0, 0, 2]
+        targetPosition = [0, 0, 2];
       }
 
       if (isMobile) {
-        targetPosition = [0, 0, 4]
+        targetPosition = [0, 0, 4];
       }
     } else if (isMobile) {
-      targetPosition = [0, 0, 2.5]
+      targetPosition = [0, 0, 2.5];
     } else {
-      targetPosition = [0, 0, 2]
+      targetPosition = [0, 0, 2];
     }
 
     // Set model camera position
-    easing.damp3(state.camera.position, targetPosition, 0.25, delta)
+    easing.damp3(state.camera.position, targetPosition, 0.25, delta);
 
-    document.addEventListener('pointermove', controlShirt)
+    // Add and remove the event listener based on isDragEnabled
+    if (isDragEnabled) {
+      document.addEventListener('pointermove', controlShirt);
+    } else {
+      document.removeEventListener('pointermove', controlShirt);
+    }
+
     // Update rotation of the group only when left mouse button is pressed down
-
     function controlShirt(e) {
-  if (isDragEnabled && e.buttons === 1 && group.current) {
-    easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta);
-  }
+      if (e.buttons === 1 && group.current) {
+        easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta);
+      }
+    }
+  });
+
+  return <group ref={group}>{children}</group>;
 }
-  })
-
-  return <group ref={group}>{children}</group>
-}
-// Set model camera position
-
-// export const View = forwardRef(({ children, camRig, ...props }, ref) => {
-//   const localRef = useRef(null)
-//   useImperativeHandle(ref, () => localRef.current)
-
-//   return (
-//     <>
-//       <div ref={localRef} {...props} />
-//       <Three>
-//         <ViewImpl track={localRef}>
-//           {children}
-//           {camRig && <CameraRig />}
-//         </ViewImpl>
-//       </Three>
-//     </>
-//   )
-// })
-// View.displayName = 'View'
