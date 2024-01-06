@@ -64,6 +64,9 @@ export function CameraRig({ children }) {
       if (isDragEnabled && e.buttons === 1 && group.current) {
         easing.dampE(group.current.rotation, [0, state.pointer.x, 0], 0.25, delta);
       }
+      else if (!isDragEnabled && e.buttons === 1 && group.current) {
+        return
+      }
     }
 
     // Add and remove the event listener based on isDragEnabled
