@@ -6,6 +6,8 @@ import { useFrame } from '@react-three/fiber'
 import { useSnapshot } from 'valtio'
 import state from '%/store'
 import { easing } from 'maath'
+import { CustomButton } from '..'
+import { fadeAnimation } from '%/config/motion'
 
 export function Backdrop() {
   const shadows = useRef()
@@ -78,4 +80,20 @@ export function CameraRig({ children }) {
   });
 
   return <group ref={group}>{children}</group>;
+}
+
+const handleDnsClick = () => {
+  setDragEnabled((prev) => prev)
+
+}
+
+export const DnsToggle = () => {
+  <motion.div className='absolute z-10 top-5 left-[50%]' {...fadeAnimation}>
+          <CustomButton
+              type='filled'
+              title={`${!isDragEnabled ? 'Static' : 'Dynamic'}`}
+              handleClick={handleDnsClick}
+              customStyles='w-fit px-4 py-2.5 font-bold text-sm'
+            />
+            </motion.div>
 }

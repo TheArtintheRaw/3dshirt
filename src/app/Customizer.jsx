@@ -19,6 +19,7 @@ import {
   Modal,
 } from '%/components'
 import CreateOrder from './CreateOrder'
+import { DnsToggle } from './components/canvas/View'
 
 const Customizer = ({ ...props }) => {
   const snap = useSnapshot(state)
@@ -137,10 +138,6 @@ const Customizer = ({ ...props }) => {
     setIsModalOpen((prev) => !prev)
   }
 
-  const handleDnSClick = () => {
-    console.log('shirt movement changed');
-    setDragEnabled((prev) => !prev)
-  }
 
   return (
     <AnimatePresence {...props}>
@@ -167,14 +164,7 @@ const Customizer = ({ ...props }) => {
             />
           </motion.div>
 
-          <motion.div className='absolute z-10 top-5 left-[50%]' {...fadeAnimation}>
-          <CustomButton
-              type='filled'
-              title={`${!isDragEnabled ? 'Static' : 'Dynamic'}`}
-              handleClick={handleDnSClick}
-              customStyles='w-fit px-4 py-2.5 font-bold text-sm'
-            />
-            </motion.div>
+          <DnsToggle />
 
           <motion.div className='absolute z-10 bottom-16 right-5' {...fadeAnimation}>
             <CustomButton
