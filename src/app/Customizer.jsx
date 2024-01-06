@@ -185,7 +185,7 @@ const Customizer = ({ ...props }) => {
             ))}
           </motion.div>
 
-          <motion.div className='absolute left-0 bottom-16' {...slideAnimation('up')}>
+          <motion.div className='absolute left-0 z-50 bottom-16' {...slideAnimation('up')}>
             <DisplayStats />
           </motion.div>
         </>
