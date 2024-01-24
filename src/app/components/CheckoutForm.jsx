@@ -1,23 +1,23 @@
 'use client'
 
-import React from 'react'
-import { loadStripe } from '@stripe/stripe-js'
+import React, { useEffect } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+// Load the Stripe script
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
 export default function PreviewPage() {
-  React.useEffect(() => {
+  useEffect(() => {
     // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search)
-    if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.')
-    }
+    const query = new URLSearchParams(window.location.search);
+    const sessionId = query.get('session_id');
 
-    if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.')
+    if (sessionId) {
+      // You can use the `sessionId` to retrieve the payment status
+      // (e.g., by calling your backend server)
+      console.log(`Payment session ID: ${sessionId}`);
     }
-  }, [])
+  }, []);
 
   return (
     <form action='/api/checkout_sessions' method='POST'>
@@ -32,10 +32,12 @@ export default function PreviewPage() {
             background: #ffffff;
             display: flex;
             flex-direction: column;
-            width: 400px;
+            width: 100%; // Adjust width for responsiveness
+            max-width: 400px; // Max width to maintain layout
             height: 112px;
             border-radius: 6px;
             justify-content: space-between;
+            margin: auto; // Center the section
           }
           button {
             height: 36px;
@@ -54,5 +56,5 @@ export default function PreviewPage() {
         `}
       </style>
     </form>
-  )
+  );
 }
