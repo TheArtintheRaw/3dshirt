@@ -1,6 +1,8 @@
+import {Script} from 'next/script'
+
 const title = 'Dope Sh!rt'
-const url = 'https://3d-vert.vercel.app/'
-const description = 'Dope Sh!rt, That app that helps you make dope sh!rt'
+const url = 'https://3dcustom.vercel.app/'
+const description = 'Dope Sh!rt, just make dope sh!rt'
 const author = 'Roger A'
 const twitter = '@theartintheraw'
 
@@ -55,6 +57,11 @@ export default function Head() {
         Be sure validate your Twitter card markup on the documentation site. */}
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:site' content={twitter} />
+
+      <Script
+        async
+        src="https://js.stripe.com/v3/buy-button.js">
+      </Script>
     </>
   )
 }
