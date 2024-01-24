@@ -1,4 +1,4 @@
-import {Script} from 'next/script'
+import Script from 'next/script'
 
 const title = 'Dope Sh!rt'
 const url = 'https://3dcustom.vercel.app/'
