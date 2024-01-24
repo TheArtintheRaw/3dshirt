@@ -27,7 +27,6 @@ const Customizer = ({ ...props }) => {
   const [file, setFile] = useState('')
   const [color, setColor] = useState('')
   const [prompt, setPrompt] = useState('')
-  const [isDragEnabled, setDragEnabled] = useState(true);
   const [generatingImg, setGeneratingImg] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [activeEditorTab, setActiveEditorTab] = useState('')
@@ -147,7 +146,6 @@ const Customizer = ({ ...props }) => {
                 {EditorTabs.map((tab) => (
                   <Tab key={tab.name} tab={tab} handleClick={() => handleTabClick(tab.name)} />
                 ))}
-
                 {generateTabContent()}
               </div>
             </div>
