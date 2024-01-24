@@ -19,7 +19,6 @@ import {
   Modal,
 } from '%/components'
 import CreateOrder from './CreateOrder'
-import { DnsToggle } from './components/canvas/View'
 
 const Customizer = ({ ...props }) => {
   const snap = useSnapshot(state)
@@ -138,11 +137,6 @@ const Customizer = ({ ...props }) => {
     setIsModalOpen((prev) => !prev)
   }
 
-  const toggleDrag = () => {
-    isDragEnabled((prev) => prev )
-  }
-
-
   return (
     <AnimatePresence {...props}>
       {!snap.intro && (
@@ -167,11 +161,6 @@ const Customizer = ({ ...props }) => {
               customStyles='w-fit px-4 py-2.5 font-bold text-sm'
             />
           </motion.div>
-
-        <motion.div className='absolute z-10 top-5 left-[50%]' {...fadeAnimation}>
-          <DnsToggle toggleDrag={toggleDrag} />
-        </motion.div>
-
 
           <motion.div className='absolute z-10 bottom-16 right-5' {...fadeAnimation}>
             <CustomButton
