@@ -1,6 +1,5 @@
 import { Layout } from '%/components/dom/Layout'
 import './global.css'
-import Script from 'next/script'
 
 export const metadata = {
   title: 'Dope Sh!rt',
@@ -14,7 +13,6 @@ export default function RootLayout({ children }) {
       <body>
         <Layout>{children}</Layout>
       </body>
-      <Script src='https://js.stripe.com/v3/buy-button.js'></Script>
     </html>
   )
 }
