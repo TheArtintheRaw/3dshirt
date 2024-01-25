@@ -140,6 +140,7 @@ const Customizer = ({ ...props }) => {
     <AnimatePresence {...props}>
       {!snap.intro && (
         <>
+          <main>
           <motion.div key='custom' className='absolute top-0 left-0 z-10' {...slideAnimation('left')}>
             <div className='flex items-center min-h-screen'>
               <div className='editortabs-container tabs'>
@@ -159,6 +160,7 @@ const Customizer = ({ ...props }) => {
               customStyles='w-fit px-4 py-2.5 font-bold text-sm'
             />
           </motion.div>
+        </main>
 
           <motion.div className='absolute z-10 bottom-16 right-5' {...fadeAnimation}>
             <CustomButton
